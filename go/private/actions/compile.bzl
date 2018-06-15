@@ -102,5 +102,6 @@ def _bootstrap_compile(go, sources, out_lib, gc_goopts):
         inputs = sources + go.sdk_files + go.sdk_tools,
         outputs = [out_lib],
         mnemonic = "GoCompile",
+#        command = "export GOROOT=$(pwd)/{} && export GOROOT_FINAL=GOROOT && export PATH=/usr/bin && {} {}".format(go.root, go.go.path, " ".join(args)),
         command = "export GOROOT=$(pwd)/{} && export GOROOT_FINAL=GOROOT && {} {}".format(go.root, go.go.path, " ".join(args)),
     )
